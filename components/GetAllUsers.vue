@@ -14,6 +14,7 @@
 </template>
 
 <script>
+
     export default {
         data() {
             return {
@@ -26,11 +27,8 @@
                console.log(users);
                this.userList = users;
                console.log(this.userList);
-            }
+            },
         },
-        mounted() {
-
-        }
     }
 </script>
 

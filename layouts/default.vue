@@ -1,10 +1,12 @@
 <template>
   <div>
+    <Nav />
     <Nuxt />
   </div>
 </template>
 
 <script>
+  import '../node_modules/@braid/vue-formulate/themes/snow/snow.scss';
   export default {
     name: 'layout', // name of the component
     data() {
@@ -53,4 +55,6 @@
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
   }
+
+  
 </style>

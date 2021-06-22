@@ -6,7 +6,8 @@
 
 <script>
     export default {
-        
+        // middleware name is based on the file name that's in the middleware directory
+        middleware: 'authenticated',
     }
 </script>
 

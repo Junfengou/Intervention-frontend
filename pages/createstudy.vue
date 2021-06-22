@@ -7,7 +7,8 @@
 
 <script>
     export default {
-        
+        // page render based on if the user is authenticated...Delete this if needed for development 
+        middleware: 'authenticated',
     }
 </script>
 

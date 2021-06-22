@@ -104,32 +104,13 @@
 
     }
 
-    .formWrapper {
-        /* border: solid gold; */
-        height: 80vh;
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 3rem;
-    }
 
-    .container {
-        /* border: solid red; */
-        width: 50%;
-    }
 
-    .calendars {
-        /* border: solid var(--orange); */
+    /* .calendars {
+        border: solid var(--orange);
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 2rem;
-    }
-
-    .btns {
-        display: flex;
-        gap: 2rem;
-    }
+    } */
 </style>

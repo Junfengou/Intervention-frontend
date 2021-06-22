@@ -1,7 +1,6 @@
 <template>
     <div class="wrapper">
-        <h3>Please log in to access all functionalities</h3>
-        <p v-if="Msg">{{Msg}}</p>
+        <h3>Sign up for an account</h3>
         <FormulateForm @submit="submitHandler" v-model="formValues" class="formWrapper" >
             <label>Email</label>
             <FormulateInput
@@ -23,12 +22,19 @@
                 }"
             />
 
+            <label>Name</label>
+            <FormulateInput
+                name="name"
+                type="text"
+                placeholder="Enter your name"
+            />
+
         <div class="btnContainer">
             <FormulateInput
                 type="submit"
-                label="Login"
+                label="Register"
             />
-            <NuxtLink to="/register"><b-button type="button" >Register</b-button></NuxtLink>
+            <NuxtLink to="/signin"><b-button type="button">Login</b-button></NuxtLink>
         </div>
                 
         </FormulateForm>
@@ -36,56 +42,31 @@
 </template>
 
 <script>
-    import { mapActions, mapGetters } from 'vuex'
     export default {
-        name: "login",
         data() {
             return {
-                // email: "",
-                // password: ""
                 formValues: {},
-                message: ""
-
             }
         },
 
-        async mounted() {
-            this.checkUserLoggedIn()
-        },
         methods: {
-            // make sure to accept the cookie that the backend send through
-            // Bearer token
-            // Don't do prevent default here with Vue Formulate
             async submitHandler(e) {
                 try {
-                    // e.preventDefault();
-                    await fetch("http://localhost:7000/users/login", 
-                    {
-                        method: 'POST',
+                    await fetch("http://localhost:7000/users/register", {
+                        method: "POST",
                         headers: {'Content-Type': 'application/json' },
                         credentials: 'include',
                         body: JSON.stringify({
                             email: this.formValues?.email,
-                            password: this.formValues?.password
+                            password: this.formValues?.password,
+                            name: this.formValues?.name
                         })
-                    });
-
+                    })
                 }
                 catch(e) {
                     console.error(e);
                 }
-                // await this.$router.push('/')
-                window.location.reload();
-            },
-            ...mapActions({
-                checkUserLoggedIn: 'authentication/checkUserLoggedIn',
-            }),
-        },
-
-        computed: {
-            ...mapGetters({
-                Msg: 'authentication/getMsg'
-            })
+            }
         }
     }
 </script>
